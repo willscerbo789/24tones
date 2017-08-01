@@ -1,4 +1,6 @@
-Triad triad = new Triad(0, 1, 0, 0);
+Triad triad = new Triad(0, 1, -1, 0);
+
+Triad test = new Triad(0, 1, -1, 0);
 
 float[][] points = new float[24][2];
 
@@ -9,6 +11,13 @@ void settings() {
 }
 
 void setup() {
+  
+  int[] testNum = new int[3];
+  testNum[0] = test.getRoot();
+  testNum[1] = test.getThird();
+  testNum[2] = test.getFifth();
+
+  */
   background(255);
   //C
   points[0][0] = 6*50;
@@ -99,30 +108,38 @@ void keyPressed() {
     println(triad.getRoot());
     println(triad.getThird());
     println(triad.getFifth());
+    triad.check();
   } else if (key == 'l' || key == 'L') {
     println("L");
     triad.leadingTone();    
     println(triad.getRoot());
     println(triad.getThird());
     println(triad.getFifth());
+    triad.check();
+
   } else if (key == 'r' || key == 'R') {
     println("R");
-    triad.relative(); 
+    triad.relative();
+    
     println(triad.getRoot());
     println(triad.getThird());
     println(triad.getFifth());
+    triad.check();
+
   } else if (key == 'm' || key == 'M') {
     println("M");
     triad.microShift1(1);
     println(triad.getRoot());
     println(triad.getThird());
     println(triad.getFifth());
+    triad.check();
   } else if (key == 'n' || key == 'N') {
     println("N");
     triad.microShift2(1);    
     println(triad.getRoot());
     println(triad.getThird());
     println(triad.getFifth());
+    triad.check();
   }
   println("--------------------");
    line(points[triad.getRoot()][0], points[triad.getRoot()][1], points[triad.getThird()][0], points[triad.getThird()][1]);
